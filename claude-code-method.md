@@ -2,6 +2,44 @@ The below is a copy paste from https://boristane.com/blog/how-i-use-claude-code/
 
 Comment:
 
+	
+deevus 57 minutes ago | prev | next [–]
+
+This is what I do with the obra/superpowers[0] set of skills.
+1. Use brainstorming to come up with the plan using the Socratic method
+
+2. Write a high level design plan to file
+
+3. I review the design plan
+
+4. Write an implementation plan to file. We've already discussed this in detail, so usually it just needs skimming.
+
+5. Use the worktree skill with subagent driven development skill
+
+6. Agent does the work using subagents that for each task:
+
+  a. Implements the task
+
+  b. Spec reviews the completed task
+
+  c. Code reviews the completed task
+7. When all tasks complete: create a PR for me to review
+8. Go back to the agent with any comments
+
+9. If finished, delete the plan files and merge the PR
+
+[0]: https://github.com/obra/superpowers
+
+reply
+
+	
+ramoz 53 minutes ago | parent | next [–]
+
+If you’ve ever desired the ability for annotating the plan more visually, try fitting Plannotator in this workflow. There is a slash command for use when you use custom workflows outside of normal plan mode.
+https://github.com/backnotprop/plannotator
+
+Comment:
+
 instead of plan.md I use a ticket system basically like ticket_<number>_<slug>.md
 
 Comment:
