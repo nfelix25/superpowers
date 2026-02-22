@@ -2,6 +2,10 @@ The below is a copy paste from https://boristane.com/blog/how-i-use-claude-code/
 
 Comment:
 
+instead of plan.md I use a ticket system basically like ticket_<number>_<slug>.md
+
+Comment:
+
 I recently discovered GitHub speckit which separates planning/execution in stages: specify, plan, tasks, implement. Finding it aligns with the OP with the level of “focus” and “attention” this gets out of Claude Code.
 Speckit is worth trying as it automates what is being described here
 
