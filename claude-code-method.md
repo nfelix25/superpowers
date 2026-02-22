@@ -1,3 +1,24 @@
+The below is a copy paste from https://boristane.com/blog/how-i-use-claude-code/, along with commetns from HN
+
+Comment:
+
+- Specs: these are generally static, but updatable as the project evolves. And they're broken out to an index file that gives a project overview, a high-level arch file, and files for all the main modules. Roughly ~1k lines of spec for 10k lines of code, and try to limit any particular spec file to 300 lines. I'm intimately familiar with every single line in these.
+
+- Plans: these are the output of a planning session with an LLM. They point to the associated specs. These tend to be 100-300 lines and 3 to 5 phases.
+
+- Working memory files: I use both a status.md (3-5 items per phase roughly 30 lines overall), which points to a latest plan, and a project_status (100-200 lines), which tracks the current state of the project and is instructed to compact past efforts to keep it lean)
+
+- A planner skill I use w/ Gemini Pro to generate new plans. It essentially explains the specs/plans dichotomy, the role of the status files, and to review everything in the pertinent areas of code and give me a handful of high-level next set of features to address based on shortfalls in the specs or things noted in the project_status file. Based on what it presents, I select a feature or improvement to generate. Then it proceeds to generate a plan, updates a clean status.md that points to the plan, and adjusts project_status based on the state of the prior completed plan.
+
+- An implementer skill in Codex that goes to town on a plan file. It's fairly simple, it just looks at status.md, which points to the plan, and of course the plan points to the relevant specs so it loads up context pretty efficiently.
+
+I've tried the two main spec generation libraries, which were way overblown, and then I gave superpowers a shot... which was fine, but still too much. The above is all homegrown, and I've had much better success because it keeps the context lean and focused.
+
+And I'm only on the $20 plans for Codex/Gemini vs. spending $100/month on CC for half year prior and move quicker w/ no stall outs due to token consumption, which was regularly happening w/ CC by the 5th day. Codex rarely dips below 70% available context when it puts up a PR after an execution run. Roughly 4/5 PRs are without issue, which is flipped against what I experienced with CC and only using planning mode.
+
+
+-------------------------------------
+
 The workflow I’m going to describe has one core principle: never let Claude write code until you’ve reviewed and approved a written plan. This separation of planning and execution is the single most important thing I do. It prevents wasted effort, keeps me in control of architecture decisions, and produces significantly better results with minimal token usage than jumping straight to code.
 
 repeat 1-6x
