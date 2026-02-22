@@ -2,6 +2,15 @@ The below is a copy paste from https://boristane.com/blog/how-i-use-claude-code/
 
 Comment:
 
+I recently discovered GitHub speckit which separates planning/execution in stages: specify, plan, tasks, implement. Finding it aligns with the OP with the level of “focus” and “attention” this gets out of Claude Code.
+Speckit is worth trying as it automates what is being described here
+
+AND
+
+Try OpenSpec and it'll do all this for you. SpecKit works too. I don't think there's a need to reinvent the wheel on this one, as this is spec-driven development.
+
+Comment:
+
 - Specs: these are generally static, but updatable as the project evolves. And they're broken out to an index file that gives a project overview, a high-level arch file, and files for all the main modules. Roughly ~1k lines of spec for 10k lines of code, and try to limit any particular spec file to 300 lines. I'm intimately familiar with every single line in these.
 
 - Plans: these are the output of a planning session with an LLM. They point to the associated specs. These tend to be 100-300 lines and 3 to 5 phases.
